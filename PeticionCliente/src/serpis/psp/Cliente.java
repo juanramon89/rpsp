@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Cliente {
 	
-	private static final String SERVER_IP = "173.194.40.159";
+	private static final String SERVER_IP = "173.194.41.248";
 	private static final int SERVER_PORT = 80;
 	
 	public static void main(String [] args) throws UnknownHostException, IOException, InterruptedException{
@@ -20,7 +20,7 @@ public class Cliente {
 		String peticion = "GET /index.html HTTP/1.0 \r\n"+
 							"\r\n";
 		
-		String file = "/home/ramon/rpsp/PeticionCliente/resultado.txt";
+		String file = "/home/mati/resultado.txt";
 		PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
 		Scanner scanner = new Scanner(socket.getInputStream());
 		FileWriter fichero = new FileWriter(file);
