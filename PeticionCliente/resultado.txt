@@ -1,1 +1,31 @@
-HTTP/1.0 302 FoundCache-Control: privateContent-Type: text/html; charset=UTF-8Location: http://www.google.es/index.html?gfe_rd=cr&ei=uFx6U4m-KsqA8Qeuw4DoBwContent-Length: 268Date: Mon, 19 May 2014 19:34:16 GMTServer: GFE/2.0Alternate-Protocol: 80:quic<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8"><TITLE>302 Moved</TITLE></HEAD><BODY><H1>302 Moved</H1>The document has moved<A HREF="http://www.google.es/index.html?gfe_rd=cr&amp;ei=uFx6U4m-KsqA8Qeuw4DoBw">here</A>.</BODY></HTML>
+
+ 
+HTTP/1.0 302 Found
+ 
+Cache-Control: private
+ 
+Content-Type: text/html; charset=UTF-8
+ 
+Location: http://www.google.es/index.html?gfe_rd=cr&ei=BZ6AU-DQFMSA8QeVo4C4DQ
+ 
+Content-Length: 268
+ 
+Date: Sat, 24 May 2014 13:26:29 GMT
+ 
+Server: GFE/2.0
+ 
+Alternate-Protocol: 80:quic
+ 
+
+ 
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+ 
+<TITLE>302 Moved</TITLE></HEAD><BODY>
+ 
+<H1>302 Moved</H1>
+ 
+The document has moved
+ 
+<A HREF="http://www.google.es/index.html?gfe_rd=cr&amp;ei=BZ6AU-DQFMSA8QeVo4C4DQ">here</A>.
+ 
+</BODY></HTML>
