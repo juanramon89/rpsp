@@ -22,25 +22,21 @@ public class ClientMini {
 		FileOutputStream fileOutputStream = new FileOutputStream("/home/ramon/"+args[1]+".txt");
 		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
 		BufferedInputStream  bufferedInputStream = new BufferedInputStream(socket.getInputStream());
-		byte [] buf = new byte[2048];
+		byte [] buf = new byte[25000];
 		
 		PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
-		
-		//Scanner scanner = new Scanner(socket.getInputStream());
 	
 		String peticion = "GET "+args[1]+"\n";
 		printWriter.print(peticion);
 		printWriter.flush();
-		//Thread.sleep(1000);
+
 		System.out.println("Peticion enviada: "+ peticion);
-		
-		
-			bufferedInputStream.read(buf);
-			bufferedOutputStream.write(buf);
-		
+			while(bufferedInputStream.read(buf) != -1){
+				bufferedInputStream.read(buf);
+				bufferedOutputStream.write(buf);
+				System.out.println("Recibido y escrito datos");
+			}
 		fileOutputStream.close();
 		bufferedOutputStream.close();
-		
 	}
-
 }

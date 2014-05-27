@@ -21,41 +21,43 @@ public class ServerMini {
 		final String fichero = "/home/ramon/workspace/Prueba/ejemplo.txt";
 		
 		final Socket socket = serverSocket.accept();
-		System.out.printf("TcpServer socket.getInetAddress()=%s socket.getPort()=%s\n", socket.getInetAddress(), socket.getPort());
+
 		new Thread( new Runnable(){
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
+				System.out.printf("TcpServer socket.getInetAddress()=%s socket.getPort()=%s\n", socket.getInetAddress(), socket.getPort());
 				try {
 					
 					Scanner scanner = new Scanner(socket.getInputStream());
 					FileInputStream fileInputStream = new FileInputStream(fichero);
-					//FileOutputStream fileOutputStream = new FileOutputStream(fichero);
 					BufferedInputStream  bufferedInputStream = new BufferedInputStream(fileInputStream);
 					BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
-					byte[] buf = new byte[2048];
+					byte[] buf = new byte[25000];
+
 					String lineIn = scanner.nextLine();
 					System.out.printf("TcpServer Recibido='%s'\n", lineIn);
 					//lineIn.startWith("GET");
 					String archivo = lineIn.substring(4);
+					System.out.println(archivo);
 					
-					if(archivo == "ejemplo"){
-						
-						bufferedInputStream.read(buf, 0, 5000);
+					if(archivo.toString().equals("ejemplo")){
+						while(bufferedInputStream.read(buf) != -1){
+			
+						bufferedInputStream.read(buf);
 						bufferedOutputStream.write(buf);
-						fileInputStream.close();
-						bufferedOutputStream.close();
+						System.out.println("Leido y Enviado DATOS");
 						
+						}
+						socket.close();
 					}
-
-					socket.close();
+					fileInputStream.close();
+					bufferedOutputStream.close();
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}).start();
-	}
- 	
-		
+	}		
 }
